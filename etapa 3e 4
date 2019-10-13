@@ -1,0 +1,30 @@
+var x=100
+var y=400
+ var xd=0
+    var yd=0
+    var estadoDisparo=0
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+  background(220);
+ fill (255,130,150)
+  rect( x, y, 50, 50)
+  x=x+2
+  if (x>width)
+    x= -random(500)
+  if( keyIsDown(CONTROL) && estadoDisparo == false) {
+
+    xd=x
+    yd=y
+   estadoDisparo=true;
+}
+  if( estadoDisparo == true){
+    fill(0,255,0)
+    ellipse(xd ,yd ,10, 10)
+     yd= yd -  10
+    if (yd<0) {
+      estadoDisparo = false }
+  }
+}
